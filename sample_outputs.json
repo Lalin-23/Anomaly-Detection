@@ -1,0 +1,65 @@
+[
+  {
+    "resource_id": "i-1",
+    "is_anomalous": true,
+    "anomaly_type": "over_provisioned",
+    "reason": "Resource is significantly under-utilized. CPU avg=2% and p95=5% are very low.",
+    "suggested_action": "Downsize to a smaller instance or implement auto-scaling.",
+    "confidence": 0.8,
+    "security_note": "Internet-facing with IAM identity attached \u2014 elevated blast radius"
+  },
+  {
+    "resource_id": "i-2",
+    "is_anomalous": false,
+    "anomaly_type": "normal",
+    "reason": "Resource metrics are within acceptable ranges.",
+    "suggested_action": "No action required. Continue monitoring.",
+    "confidence": 0.95,
+    "security_note": null
+  },
+  {
+    "resource_id": "i-3",
+    "is_anomalous": true,
+    "anomaly_type": "cpu_spikes",
+    "reason": "CPU shows bursty behavior. CPU p95=92% with avg=45% \u2014 bursty workload.",
+    "suggested_action": "Enable burstable instance or add p95-based auto-scaling.",
+    "confidence": 0.7,
+    "security_note": null
+  },
+  {
+    "resource_id": "i-4",
+    "is_anomalous": true,
+    "anomaly_type": "over_provisioned",
+    "reason": "Resource is significantly under-utilized. CPU avg=3% and p95=8% are very low | Both CPU and memory are very low \u2014 resource is likely idle.",
+    "suggested_action": "Downsize to a smaller instance or implement auto-scaling.",
+    "confidence": 0.8,
+    "security_note": null
+  },
+  {
+    "resource_id": "i-5",
+    "is_anomalous": true,
+    "anomaly_type": "high_error_rate",
+    "reason": "Error rate is abnormally high. Memory avg=92% is critically high | Network utilization=85% is high | Disk usage=93.0% is critically high | Error rate=8.5% is abnormal.",
+    "suggested_action": "Investigate logs, check dependencies, consider rollback.",
+    "confidence": 0.97,
+    "security_note": "Internet-facing with IAM identity attached \u2014 elevated blast radius | Internet-facing with high outbound network \u2014 possible data exfiltration | Internet-facing with high error rate \u2014 may indicate probing or attack"
+  },
+  {
+    "resource_id": "i-6",
+    "is_anomalous": true,
+    "anomaly_type": "memory_pressure",
+    "reason": "Memory is critically high. Memory avg=89% is critically high | High memory (89%) but idle CPU (6%) \u2014 possible leak. Risk of OOM kills.",
+    "suggested_action": "Upgrade memory, investigate leaks, or add swap as short-term fix.",
+    "confidence": 0.85,
+    "security_note": null
+  },
+  {
+    "resource_id": "i-7",
+    "is_anomalous": false,
+    "anomaly_type": "normal",
+    "reason": "Resource metrics are within acceptable ranges.",
+    "suggested_action": "No action required. Continue monitoring.",
+    "confidence": 0.95,
+    "security_note": null
+  }
+]
